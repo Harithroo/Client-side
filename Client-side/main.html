@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+    <title>main</title>
+    <!-- <meta http-equiv="Content-Security-Policy"
+    content="script-src 'self' code.jquery.com 'unsafe-inline';"
+    > -->
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script type="text/javascript" src="data.json"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+    <script>
+        $(function () {
+            var dateFormat = "mm/dd/yy",
+                from = $("#from")
+                    .datepicker({
+                        defaultDate: "+1w",
+                        changeMonth: true,
+                        numberOfMonths: 2
+                    })
+                    .on("change", function () {
+                        to.datepicker("option", "minDate", getDate(this));
+                    }),
+                to = $("#to").datepicker({
+                    defaultDate: "+1w",
+                    changeMonth: true,
+                    numberOfMonths: 2
+                })
+                    .on("change", function () {
+                        from.datepicker("option", "maxDate", getDate(this));
+                    });
+
+            function getDate(element) {
+                var date;
+                try {
+                    date = $.datepicker.parseDate(dateFormat, element.value);
+                } catch (error) {
+                    date = null;
+                }
+
+                return date;
+            }
+        });
+        $(document).ready(function() {
+            add("")
+        });
+    </script>
+</head>
+<body>
+    <div class="body1">
+    <div id="favourite">
+        <p>Favourite</p>
+        <div id="fav"></div>
+    </div>
+    <div class="topic">
+        <h1>Holiday search</h1>
+    </div>
+    
+    <form name="sea" id="form">
+        <input list="destination" placeholder="Enter a destination or resort" name="destination">
+        <datalist id="destination">
+            <option value="The Alps">
+            <option value="Les Arcs Panorama">
+            <option value="Caribbean">
+            <option value="Les Boucaniers">
+            <option value="Indian Ocean">
+            <option value="La Plantation d Albion">
+            <option value="South America">
+            <option value="Trancoso">
+            <option value="Africa">
+            <option value="Marrakech La Palmeraie">
+            <option value="North America">
+            <option value="Ixtapa Pacific">
+            <option value="Asia">
+            <option value="Kabira Ishigaki">
+        </datalist>
+        <input list="comfort levels" placeholder="select comfort level" name="comfort levels">
+        <datalist id="comfort levels">
+            <option value="comfort 3 stars">
+            <option value="premium 4 stars">
+            <option value="luxury 5 stars">
+        </datalist>
+        <input list="activites" placeholder="select an activity" name="activites">
+        <datalist id="activites">
+            <option value="water skiing">
+            <option value="sailing">
+            <option value="tennis">
+            <option value="scuba diving">
+            <option value="golf">
+            <option value="hiking">
+            <option value="horse riding">
+            <option value="spa">
+            <option value="skiing">
+        </datalist>
+        <label for="from">From</label>
+        <input type="text" id="from" placeholder="Search start date" name="from">
+        <label for="to">to</label>
+        <input type="text" id="to" placeholder="Search end date" name="to">
+        <input list="number" placeholder="Search price" name="price" value="">
+        <datalist id="number">
+            <option value="986">
+            <option value="1058">
+            <option value="1124">
+            <option value="1254">
+            <option value="1586">
+            <option value="2062">
+            <option value="2185">
+        </datalist>
+        <a href="#body2"><input type="button" value="search" onclick="search()"></a>
+    </form>
+    </div>
+    <div class="imgs">
+    <div id="body2">
+    <div id="placeholder1"></div>
+    <div id="placeholder2"></div>
+    <div id="placeholder3"></div>
+    <div id="placeholder4"></div>
+    <div id="placeholder5"></div>
+    <div id="placeholder6"></div>
+    <div id="placeholder7"></div>
+    </div>
+    </div>
+</body>
+</html>

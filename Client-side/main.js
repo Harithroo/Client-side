@@ -1,0 +1,255 @@
+function add(a) { // function to add favourites and clear favourites list
+  if (sessionStorage.list == null) {
+    sessionStorage.list = []; // create empty list
+  } else if (a == "") {
+    if (sessionStorage.list == []) { // used a condition display list when page is refreshed
+      document.getElementById("fav").innerHTML = sessionStorage.list;
+    } else {
+      document.getElementById("fav").innerHTML = sessionStorage.list + "<br>" + "<input type=\"button\" value=\"clear\" onclick=\"add('r')\"></input>" + "<br>";
+    }
+  } else if (a == "r") {
+    sessionStorage.list = []; // clear list
+    document.getElementById("fav").innerHTML = sessionStorage.list;
+  } else if (sessionStorage.list.includes(a)) {
+    document.getElementById("fav").innerHTML = sessionStorage.list + "<br>" + "<input type=\"button\" value=\"clear\" onclick=\"add('r')\"></input>" + "<br>";
+  } else {  // display list
+    sessionStorage.list = sessionStorage.list + a + "<br>";
+    document.getElementById("fav").innerHTML = sessionStorage.list + "<br>" + "<input type=\"button\" value=\"clear\" onclick=\"add('r')\"></input>" + "<br>";
+  }
+}
+let list = sessionStorage.list;
+document.getElementById("fav").innerHTML = list + "<br>" + "<input type=\"button\" value=\"clear\" onclick=\"add('r')\"></input>" + "<br>";
+function write(para1) { //function used to wite the results
+  if (para1 == 0) { // if result includes resort 1
+    var mydata = JSON.parse(data);
+    document.getElementById("placeholder1").innerHTML = "<br>" + mydata[para1].name + "<br>" + "<br>" + "<input type=\"button\" value=\"add to favourites\" onclick=\"add('Les Boucaniers')\"></input>" + "<br>" + "<br>" + "<img class='imgs' src=" + "'" + mydata[para1].picture + "'>" + "<div class='set'>" + mydata[para1].short_description + "<br>" + "<br>" + "Price: " + mydata[para1].price + "<br>" + "<a href=" + "'" + mydata[para1].url + "'" + ">" + "click for more details" + "</a></div>" + "<br><br>";
+  }
+  if (para1 == 1) { // if result includes resort 2
+    var mydata = JSON.parse(data);
+    document.getElementById("placeholder2").innerHTML = "<br>" + mydata[para1].name + "<br>" + "<br>" + "<input type=\"button\" value=\"add to favourites\" onclick=\"add('La Plantation d Albion')\"></input>" + "<br>" + "<br>" + "<img class='imgs' src=" + "'" + mydata[para1].picture + "'>" + "<div class='set'>" + mydata[para1].short_description + "<br>" + "<br>" + "Price: " + mydata[para1].price + "<br>" + "<a href=" + "'" + mydata[para1].url + "'" + ">" + "click for more details" + "</a></div>" + "<br><br>";
+  }
+  if (para1 == 2) { // if result includes resort 3
+    var mydata = JSON.parse(data);
+    document.getElementById("placeholder3").innerHTML = "<br>" + mydata[para1].name + "<br>" + "<br>" + "<input type=\"button\" value=\"add to favourites\" onclick=\"add('Trancoso')\"></input>" + "<br>" + "<br>" + "<img class='imgs' src=" + "'" + mydata[para1].picture + "'>" + "<div class='set'>" + mydata[para1].short_description + "<br>" + "<br>" + "Price: " + mydata[para1].price + "<br>" + "<a href=" + "'" + mydata[para1].url + "'" + ">" + "click for more details" + "</a></div>" + "<br><br>";
+  }
+  if (para1 == 3) { // if result includes resort 4
+    var mydata = JSON.parse(data);
+    document.getElementById("placeholder4").innerHTML = "<br>" + mydata[para1].name + "<br>" + "<br>" + "<input type=\"button\" value=\"add to favourites\" onclick=\"add('Marrakech La Palmeraie')\"></input>" + "<br>" + "<br>" + "<img class='imgs' src=" + "'" + mydata[para1].picture + "'>" + "<div class='set'>" + mydata[para1].short_description + "<br>" + "<br>" + "Price: " + mydata[para1].price + "<br>" + "<a href=" + "'" + mydata[para1].url + "'" + ">" + "click for more details" + "</a></div>" + "<br><br>";
+  }
+  if (para1 == 4) { // if result includes resort 5
+    var mydata = JSON.parse(data);
+    document.getElementById("placeholder5").innerHTML = "<br>" + mydata[para1].name + "<br>" + "<br>" + "<input type=\"button\" value=\"add to favourites\" onclick=\"add('Ixtapa Pacific')\"></input>" + "<br>" + "<br>" + "<img class='imgs' src=" + "'" + mydata[para1].picture + "'>" + "<div class='set'>" + mydata[para1].short_description + "<br>" + "<br>" + "Price: " + mydata[para1].price + "<br>" + "<a href=" + "'" + mydata[para1].url + "'" + ">" + "click for more details" + "</a></div>" + "<br><br>";
+  }
+  if (para1 == 5) { // if result includes resort 6
+    var mydata = JSON.parse(data);
+    document.getElementById("placeholder6").innerHTML = "<br>" + mydata[para1].name + "<br>" + "<br>" + "<input type=\"button\" value=\"add to favourites\" onclick=\"add('Les Arcs Panorama')\"></input>" + "<br>" + "<br>" + "<img class='imgs' src=" + "'" + mydata[para1].picture + "'>" + "<div class='set'>" + mydata[para1].short_description + "<br>" + "<br>" + "Price: " + mydata[para1].price + "<br>" + "<a href=" + "'" + mydata[para1].url + "'" + ">" + "click for more details" + "</a></div>" + "<br><br>";
+  }
+  if (para1 == 6) { // if result includes resort 7
+    var mydata = JSON.parse(data);
+    document.getElementById("placeholder7").innerHTML = "<br>" + mydata[para1].name + "<br>" + "<br>" + "<input type=\"button\" value=\"add to favourites\" onclick=\"add('Kabira Ishigaki')\"></input>" + "<br>" + "<br>" + "<img class='imgs' src=" + "'" + mydata[para1].picture + "'>" + "<div class='set'>" + mydata[para1].short_description + "<br>" + "<br>" + "Price: " + mydata[para1].price + "<br>" + "<a href=" + "'" + mydata[para1].url + "'" + ">" + "click for more details" + "</a></div>" + "<br><br>";
+  }
+}
+
+function search() { // search function
+  var x = document.forms["sea"]["destination"].value;
+  var z = document.forms["sea"]["comfort levels"].value;
+  var a = document.forms["sea"]["activites"].value;
+  var f = new Date(document.forms["sea"]["from"].value);
+  var t = new Date(document.forms["sea"]["to"].value);
+  var p = document.forms["sea"]["price"].value;
+  var searchitem = [x, z, a, p] // to search name, comfort level and price at the same time
+  var mydata = JSON.parse(data);
+  document.getElementById("placeholder1").innerHTML = null;
+  document.getElementById("placeholder2").innerHTML = null;
+  document.getElementById("placeholder3").innerHTML = null;
+  document.getElementById("placeholder4").innerHTML = null;
+  document.getElementById("placeholder5").innerHTML = null;
+  document.getElementById("placeholder6").innerHTML = null;
+  document.getElementById("placeholder7").innerHTML = null;
+  var resort1 = [mydata[0].destination, mydata[0].name, mydata[0].comfortLevel, mydata[0].price]
+  var resort1a = mydata[0].activities;
+  var resort2 = [mydata[1].destination, mydata[1].name, mydata[1].comfortLevel, mydata[1].price]
+  var resort2a = mydata[1].activities;
+  var resort3 = [mydata[2].destination, mydata[2].name, mydata[2].comfortLevel, mydata[2].price]
+  var resort3a = mydata[2].activities;
+  var resort4 = [mydata[3].destination, mydata[3].name, mydata[3].comfortLevel, mydata[3].price]
+  var resort4a = mydata[3].activities;
+  var resort5 = [mydata[4].destination, mydata[4].name, mydata[4].comfortLevel, mydata[4].price]
+  var resort5a = mydata[4].activities;
+  var resort6 = [mydata[5].destination, mydata[5].name, mydata[5].comfortLevel, mydata[5].price]
+  var resort6a = mydata[5].activities;
+  var resort7 = [mydata[6].destination, mydata[6].name, mydata[6].comfortLevel, mydata[6].price]
+  var resort7a = mydata[6].activities;
+  for (let index = 0; index < searchitem.length; index++) { //resulting resort 1
+    i = searchitem[index];
+    var result1 = resort1.includes(i) // search name, comfort level and price at the same time
+    if (result1 == true) {
+      write(0);
+    }
+    var result1a = resort1a.includes(a) // search activity
+    if (result1a == true) {
+      write(0);
+    }
+    var fj = new Date(mydata[0].startDate) // search date
+    var tj = new Date(mydata[0].endDate)
+    if (f.getTime() > fj.getTime()) {
+      if (t.getTime() < tj.getTime()) {
+        write(0);
+      }
+    }
+  }
+  for (let index = 0; index < searchitem.length; index++) { //resulting resort 2
+    i = searchitem[index];
+    var result2 = resort2.includes(i)
+    if (result2 == true) {
+      write(1);
+    }
+    var result2a = resort2a.includes(a) // search activity
+    if (result2a == true) {
+      write(1);
+    }
+    var fj = new Date(mydata[1].startDate) // search date
+    var tj = new Date(mydata[1].endDate)
+    if (f.getTime() > fj.getTime()) {
+      if (t.getTime() < tj.getTime()) {
+        write(1);
+      }
+    }
+  }
+  for (let index = 0; index < searchitem.length; index++) { //resulting resort 3
+    i = searchitem[index];
+    var result3 = resort3.includes(i) // search name, comfort level and price at the same time
+    if (result3 == true) {
+      write(2);
+    }
+    var result3a = resort3a.includes(a) // search activity
+    if (result3a == true) {
+      write(2);
+    }
+    var fj = new Date(mydata[2].startDate) // search date
+    var tj = new Date(mydata[2].endDate)
+    if (f.getTime() > fj.getTime()) {
+      if (t.getTime() < tj.getTime()) {
+        write(2);
+      }
+    }
+  }
+  for (let index = 0; index < searchitem.length; index++) { //resulting resort 4
+    i = searchitem[index];
+    var result4 = resort4.includes(i)
+    if (result4 == true) {
+      write(3);
+    }
+    var result4a = resort4a.includes(a) // search activity
+    if (result4a == true) {
+      write(3);
+    }
+    var fj = new Date(mydata[3].startDate) // search date
+    var tj = new Date(mydata[3].endDate)
+    if (f.getTime() > fj.getTime()) {
+      if (t.getTime() < tj.getTime()) {
+        write(3);
+      }
+    }
+  }
+  for (let index = 0; index < searchitem.length; index++) { //resulting resort 5
+    i = searchitem[index];
+    var result5 = resort5.includes(i) // search name, comfort level and price at the same time
+    if (result5 == true) {
+      write(4);
+    }
+    var result5a = resort5a.includes(a) // search activity
+    if (result5a == true) {
+      write(4);
+    }
+    var fj = new Date(mydata[4].startDate) // search date
+    var tj = new Date(mydata[4].endDate)
+    if (f.getTime() > fj.getTime()) {
+      if (t.getTime() < tj.getTime()) {
+        write(4);
+      }
+    }
+  }
+  for (let index = 0; index < searchitem.length; index++) { //resulting resort 6
+    i = searchitem[index];
+    var result6 = resort6.includes(i)
+    if (result6 == true) {
+      write(5);
+    }
+    var result6a = resort6a.includes(a) // search activity
+    if (result6a == true) {
+      write(5);
+    }
+    var fj = new Date(mydata[5].startDate) // search date
+    var tj = new Date(mydata[5].endDate)
+    if (f.getTime() > fj.getTime()) {
+      if (t.getTime() < tj.getTime()) {
+        write(5);
+      }
+    }
+  }
+  for (let index = 0; index < searchitem.length; index++) { //resulting resort 7
+    i = searchitem[index];
+    var result7 = resort7.includes(i)
+    if (result7 == true) {
+      write(6);
+    }
+    var result7a = resort7a.includes(a) // search activity
+    if (result7a == true) {
+      write(6);
+    }
+    var fj = new Date(mydata[6].startDate) // search date
+    var tj = new Date(mydata[6].endDate)
+    if (f.getTime() > fj.getTime()) {
+      if (t.getTime() < tj.getTime()) {
+        write(6);
+      }
+    }
+  }
+}
+
+
+
+function change(i, h) {
+  if (h == 1) {
+    if (i == "a") {
+      document.getElementById("thumbplay").src = "img/1 (1).jpg";
+    }
+    if (i == "b") {
+      document.getElementById("thumbplay").src = "img/1 (2).jpg";
+    }
+    if (i == "c") {
+      document.getElementById("thumbplay").src = "img/1 (3).jpg";
+    }
+    if (i == "d") {
+      document.getElementById("thumbplay").src = "img/1 (4).jpg";
+    }
+    if (i == "e") {
+      document.getElementById("thumbplay").src = "img/1 (5).jpg";
+    }
+    if (i == "f") {
+      document.getElementById("thumbplay").src = "img/1 (6).jpg";
+    }
+  }
+  if (h == 2) {
+    if (i == "a") {
+      document.getElementById("thumbplay").src = "img/2 (1).jpg";
+    }
+    if (i == "b") {
+      document.getElementById("thumbplay").src = "img/2 (2).jpg";
+    }
+    if (i == "c") {
+      document.getElementById("thumbplay").src = "img/2 (3).jpg";
+    }
+    if (i == "d") {
+      document.getElementById("thumbplay").src = "img/2 (4).jpg";
+    }
+    if (i == "e") {
+      document.getElementById("thumbplay").src = "img/2 (5).jpg";
+    }
+    if (i == "f") {
+      document.getElementById("thumbplay").src = "img/2 (6).jpg";
+    }
+  }
+
+}

@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>La Plantation d Albion</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <script type="text/javascript" src="data.json"></script>
+  <script type="text/javascript" src="main.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+    $(function () {
+      $("#tabs").tabs();
+    });
+  </script>
+</head>
+
+<body>
+  <div class="hotelcover2">
+    <a href="main.html"><button class="home">Home</button></a>
+    <h2 class="topic1">La Plantation d Albion</h2>
+    <h2 class="location1">Location - Mauritius</h2>
+    <h3 class="comfort">comfort level - premium 4 stars</h3>
+  </div>
+  <div class="price">price : 2062</div>
+  <h3>activities</h3>
+  <ul>
+    <li>kids club</li>
+    <li>golf</li>
+    <li>scuba diving</li>
+    <li>tennis</li>
+    <li>sailing</li>
+    <li>spa</li>
+  </ul>
+
+  <p>Beautifully located in one of the last remote creeks on the island, La Plantation d Albion Club Med welcomes the
+    most demanding of guests into a world of supreme refinement.</p>
+
+
+  <div class="imgset">
+    <div class="thumbviwe">
+      <img id="thumbplay" src="img/2 (1).jpg">
+    </div>
+    <img class="hotel1" src="img/2 (1).jpg" onmouseover="change('a','2')">
+    <img class="hotel1" src="img/2 (2).jpg" onmouseover="change('b','2')">
+    <img class="hotel1" src="img/2 (3).jpg" onmouseover="change('c','2')">
+    <br>
+    <img class="hotel1" src="img/2 (4).jpg" onmouseover="change('d','2')">
+    <img class="hotel1" src="img/2 (5).jpg" onmouseover="change('e','2')">
+    <img class="hotel1" src="img/2 (6).jpg" onmouseover="change('f','2')">
+  </div>
+  <input class="iadd" type="button" value="add to favourites" onclick="add('La Plantation d Albion')">
+
+  <div id="tabs">
+    <ul>
+      <li><a href="#tabs-1">Description</a></li>
+      <li><a href="#tabs-2">Accommodation</a></li>
+      <li><a href="#tabs-3">Map</a></li>
+    </ul>
+    <div id="tabs-1">
+      <h2>Description</h2>
+      <p>In a remote beauty spot, savour the luxury of Mauritian lifestyle. <br> The idyllic natural setting is enhanced
+        by the sublime decor designed by Marc Hertrich and Nicolas Adnet, and the Resorts top-end comfort is perfectly
+        reflected in its beautifully spacious rooms. The exceptional CINQ MONDES Spa* and luxurious overflow pool add an
+        ideally Zen touch.<br> The Resort is entirely devoted to fulfilling its guests desires and offers discreet,
+        personal service in its swimming areas, bars and Table Gourmet restaurants.</p>
+    </div>
+    <div id="tabs-2">
+      <h2>Accommodation</h2>
+      <p>
+
+      </p>
+    </div>
+    <div id="tabs-3">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3743.992310332812!2d57.39510741434977!3d-20.21764058644324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x217c45b667256001%3A0xc4a8ee94c5252c24!2sClub%20Med%20La%20Plantation%20D&#39;Albion!5e0!3m2!1sen!2slk!4v1578298296906!5m2!1sen!2slk"
+        width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+    </div>
+  </div>
+</body>
+
+</html>
